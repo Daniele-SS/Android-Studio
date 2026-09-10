@@ -5,7 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -26,25 +28,25 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeLayoutTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-
-                    Box(modifier = Modifier
-                        .padding(innerPadding) //ajusta o espaçamento do text
-                        .background(Color.Cyan) //adiciona cor no text
-                        //o .size fará com que eu possa ajustar os campos em que a cor Cyan
-                        //irá ficar com base no tamanho definido no width e height.
-                        .size(
-                            width = 200.dp,
-                            height = 400.dp
-                        ),
-                        contentAlignment = Alignment.Center //centraliza a mensagem e a cor
-                                                            //definida no campo Text
-                    ){
-                        Text("Aula Android")
-                        Text(
-                            text = "Com Jetpack Compose!",
-                            modifier = Modifier.align(Alignment.BottomCenter)
-                        )
-                    }
+                    LayoutScreen(modifier = Modifier.padding(innerPadding))
+//                    Box(modifier = Modifier
+//                        .padding(innerPadding) //ajusta o espaçamento do text
+//                        .background(Color.Cyan) //adiciona cor no text
+//                        //o .size fará com que eu possa ajustar os campos em que a cor Cyan
+//                        //irá ficar com base no tamanho definido no width e height.
+//                        .size(
+//                            width = 200.dp,
+//                            height = 400.dp
+//                        ),
+//                        contentAlignment = Alignment.Center //centraliza a mensagem e a cor
+//                                                            //definida no campo Text
+//                    ){
+//                        Text("Aula Android")
+//                        Text(
+//                            text = "Com Jetpack Compose!",
+//                            modifier = Modifier.align(Alignment.BottomCenter)
+//                        )
+//                    }
                 }
             }
         }
@@ -52,17 +54,24 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
+fun LayoutScreen(modifier: Modifier) {
+    Column(
         modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ComposeLayoutTheme {
-        Greeting("Android")
+            .background(Color.Gray)
+            .fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text("Texto 1")
+        Text("Texto 2")
+        Text("Texto 3")
+        Text("Texto 4")
     }
 }
+
+//@Preview(showBackground = true)
+//@Composable
+//fun GreetingPreview() {
+//    ComposeLayoutTheme {
+//        Greeting("Android")
+//    }
+//}
