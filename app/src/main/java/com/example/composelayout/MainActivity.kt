@@ -8,6 +8,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -57,14 +58,28 @@ class MainActivity : ComponentActivity() {
 fun LayoutScreen(modifier: Modifier) {
     Column(
         modifier = modifier
-            .background(Color.Gray)
+            .background(Color.Cyan)
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        //os textos ficam na ordem escrita
         Text("Texto 1")
         Text("Texto 2")
         Text("Texto 3")
-        Text("Texto 4")
+
+        //os textos ficam alinhados verticalmente
+        Row() {
+            Text("Texto 4")
+            Text("Texto 5")
+            Text("Texto 6")
+
+            //os textos ficam alinhados em coluna
+            Column() {
+                Text("Texto 7")
+                Text("Texto 8")
+                Text("Texto 9")
+            }
+        }
     }
 }
 
