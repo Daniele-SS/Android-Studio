@@ -6,10 +6,12 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Scaffold
@@ -62,23 +64,29 @@ fun LayoutScreen(modifier: Modifier) {
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        //os textos ficam na ordem escrita
-        Text("Texto 1")
-        Text("Texto 2")
-        Text("Texto 3")
+        //os textos ficam alinhados em coluna
+        Column(
+            modifier = Modifier
+            .background(color = Color.Yellow)
+            .weight(1f)
+            .fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text("Texto 7")
+            Text("Texto 8")
+            Text("Texto 9")
+        }
 
         //os textos ficam alinhados verticalmente
-        Row() {
+        Row(
+            modifier = Modifier
+                .background(color = Color.Gray)
+                .weight(1f)
+        ) {
             Text("Texto 4")
             Text("Texto 5")
             Text("Texto 6")
-
-            //os textos ficam alinhados em coluna
-            Column() {
-                Text("Texto 7")
-                Text("Texto 8")
-                Text("Texto 9")
-            }
         }
     }
 }
